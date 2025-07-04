@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    {% include 'navbar.html' %}
+
+    <div class="container">
+        <h2>User Profile</h2>
+        <p><strong>Username:</strong> {{ role.capitalize() }}</p>
+        {% if role == 'patient' %}
+            <p><strong>Disease:</strong> {{ disease or "Not Provided" }}</p>
+        {% elif role == 'doctor' %}
+            <p><strong>Specialization:</strong> {{ specialization or "Not Provided" }}</p>
+        {% endif %}
+        <p><strong>Total Appointments:</strong> {{ appt_count }}</p>
+
+        <hr>
+        <h3>Change Password</h3>
+        {% if message %}
+            <p><strong>{{ message }}</strong></p>
+        {% endif %}
+        <form method="POST">
+            <label>Current Password:</label><br>
+            <input type="password" name="current_password" required><br>
+
+            <label>New Password:</label><br>
+            <input type="password" name="new_password" required><br>
+
+            <button type="submit">Update Password</button>
+        </form>
+
+        <p><a href="{{ url_for('dashboard') }}">Back to Dashboard</a></p>
+    </div>
+</body>
+</html>

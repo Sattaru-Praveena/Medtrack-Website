@@ -1,0 +1,21 @@
+<!-- templates/navbar.html -->
+<!-- templates/navbar.html -->
+<nav style="background-color: #007bff; padding: 12px 24px; display: flex; justify-content: space-between; align-items: center; color: white;">
+    <div style="font-size: 20px; font-weight: bold;">
+        <a href="{{ url_for('index') }}" style="color: white; text-decoration: none;">MedTrack</a>
+    </div>
+
+    <div>
+        <a href="{{ url_for('aboutus') }}" style="color: white; margin-right: 20px;">About Us</a>
+
+        {% if 'username' in session %}
+            <a href="{{ url_for('dashboard') }}" style="color: white; margin-right: 20px;">Dashboard</a>
+            <a href="{{ url_for('profile') }}" style="color: white; margin-right: 20px;">Profile</a>
+            <a href="{{ url_for('logout') }}" style="color: white;">Logout</a>
+        {% else %}
+            <a href="{{ url_for('login') }}" style="color: white; margin-right: 20px;">Login</a>
+            <a href="{{ url_for('register') }}" style="color: white;">Register</a>
+        {% endif %}
+    </div>
+</nav>
+

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome | MedTrack</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(to right, #007bff, #00c6ff);
+            color: white;
+            border-radius: 0 0 30px 30px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+        }
+
+        .hero a {
+            background-color: white;
+            color: #007bff;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .hero a:hover {
+            background-color: #e6e6e6;
+        }
+
+        .features {
+            max-width: 1000px;
+            margin: 60px auto;
+            text-align: center;
+        }
+
+        .features h2 {
+            margin-bottom: 30px;
+        }
+
+        .feature-box {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 40px;
+        }
+
+        .feature {
+            flex: 1 1 250px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        }
+
+        .feature h3 {
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    {% include 'navbar.html' %}
+
+    <div class="hero">
+        <h1>Welcome to MedTrack</h1>
+        <p>Your personal cloud-based medication and appointment management system.</p>
+        <a href="{{ url_for('login') }}">Get Started</a>
+    </div>
+
+    <div class="features">
+        <h2>Why Choose MedTrack?</h2>
+        <div class="feature-box">
+            <div class="feature">
+                <h3>Easy Appointments</h3>
+                <p>Book doctor appointments and track all your visits in one place.</p>
+            </div>
+            <div class="feature">
+                <h3>Smart Reminders</h3>
+                <p>Stay on top of your medication schedule with timely alerts.</p>
+            </div>
+            <div class="feature">
+                <h3>Doctor’s Prescription</h3>
+                <p>Doctors can view and respond to appointment requests and provide secure prescriptions.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

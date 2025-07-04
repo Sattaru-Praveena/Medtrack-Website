@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Appointment</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Edit Appointment</h2>
+        <form method="POST">
+            <label>Doctor:</label><br>
+            <input type="text" name="doctor" value="{{ appt[0] }}" required><br>
+
+            <label>Date:</label><br>
+            <input type="date" name="date" min="{{ current_date }}" value="{{ appt[1] }}" required><br>
+
+            <label>Time:</label><br>
+            <input type="time" name="time" value="{{ appt[2] }}" required><br>
+
+            <label>Reason:</label><br>
+            <input type="text" name="reason" value="{{ appt[3] }}"><br>
+
+            <button type="submit">Update Appointment</button>
+        </form>
+        <footer>
+            <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctor Dashboard | MedTrack</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .container {
+            max-width: 1000px;
+            margin: 60px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #007bff;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f2f2f2;
+        }
+
+        .btn-small {
+            padding: 6px 12px;
+            font-size: 14px;
+        }
+
+        .no-data {
+            text-align: center;
+            color: #666;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    {% include 'navbar.html' %}
+
+    <div class="container">
+        <h2>Welcome, Dr. {{ username }}</h2>
+
+        {% if appointments %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Patient</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Reason</th>
+                    <th>Diagnosis</th>
+                    <th>Prescription</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for appt in appointments %}
+                <tr>
+                    <td>{{ appt[1] }}</td>
+                    <td>{{ appt[2] }}</td>
+                    <td>{{ appt[3] }}</td>
+                    <td>{{ appt[4] }}</td>
+                    <td>{{ appt[5] if appt[5] else '-' }}</td>
+                    <td>{{ appt[6] if appt[6] else '-' }}</td>
+                    <td>
+                        <a class="btn btn-small" href="{{ url_for('prescribe', appt_id=appt[0]) }}">Prescribe</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <div class="no-data">No appointment requests found.</div>
+        {% endif %}
+    </div>
+</body>
+</html>

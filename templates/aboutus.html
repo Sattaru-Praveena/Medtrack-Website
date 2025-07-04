@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Us | MedTrack</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .about-container {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .about-container h2 {
+            text-align: center;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .about-container p {
+            font-size: 17px;
+            line-height: 1.7;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .about-container ul {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+
+        .about-container ul li {
+            margin-bottom: 10px;
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+    {% include 'navbar.html' %}
+
+    <div class="about-container">
+        <h2>About MedTrack</h2>
+        <p>
+            MedTrack is a cloud-based application developed to help patients manage their medications and appointments efficiently.
+            Designed with user-friendliness in mind, it offers seamless interaction between patients and doctors.
+        </p>
+
+        <p>Our key features include:</p>
+        <ul>
+            <li>Secure login and profile management for both doctors and patients</li>
+            <li>Appointment booking with real-time doctor dashboard</li>
+            <li>Doctor-to-patient prescription and diagnosis communication</li>
+            <li>Smart scheduling with prevention of past-date selections</li>
+        </ul>
+
+        <p>
+            Whether you're a patient managing chronic treatments or a doctor coordinating with multiple patients, MedTrack is here to support better health outcomes through smart digital tools.
+        </p>
+
+        <p>
+            <strong>Contact us:</strong> support@medtrack.example.com
+        </p>
+    </div>
+</body>
+</html>

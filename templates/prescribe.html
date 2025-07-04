@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prescribe</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Prescription for {{ appt[0] }}</h2>
+        <p><strong>Date:</strong> {{ appt[1] }} | <strong>Time:</strong> {{ appt[2] }}</p>
+        <p><strong>Reason:</strong> {{ appt[3] }}</p>
+
+        <form method="POST">
+            <label for="diagnosis">Diagnosis:</label>
+            <textarea name="diagnosis" rows="3" required>{{ appt[4] or '' }}</textarea>
+
+            <label for="medications">Medications:</label>
+            <textarea name="medications" rows="3" required>{{ appt[5] or '' }}</textarea>
+
+            <button type="submit">Submit Prescription</button>
+        </form>
+        <br>
+        <a href="{{ url_for('doctor_dashboard') }}">← Back</a>
+    </div>
+</body>
+</html>
