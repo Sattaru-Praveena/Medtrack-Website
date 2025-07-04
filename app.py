@@ -10,7 +10,7 @@ app.secret_key = 'your_secret_key_here'
 # ---------------- AWS SETUP ----------------
 dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
 sns = boto3.client('sns', region_name='us-east-1')
-sns_topic_arn = 'arn:aws:sns:us-east-1:YOUR_ACCOUNT_ID:YourSNSTopic'  # Update this
+sns_topic_arn = 'arn:aws:sns:us-east-1:588738595058:Medtrack:d10a7f8f-f58f-4b5c-a194-d6b5b2de338c'  # Update this
 
 # Tables
 users_table = dynamodb.Table('Users')
