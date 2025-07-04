@@ -5,7 +5,6 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import date
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key_here'
 
 # ---------------- AWS SETUP ----------------
 dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
